@@ -1,0 +1,18 @@
+#parcel-
+-dev build
+-local server
+-HMR
+-hot module replacement
+-file watching algorithm written in c++
+-caching faster builds
+-image optimizaation
+-minification
+-boundling
+-compressing
+-consistent hashing
+-code splitting
+-differential bundling: support older browser
+-diagnostic
+-error handling
+-https
+-parceljs.org
