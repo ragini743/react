@@ -4,7 +4,8 @@
   "description": "",
   "main": "index1.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "name":"parcel index.html"
   },
   "author": "ragini743",
   "license": "ISC",
