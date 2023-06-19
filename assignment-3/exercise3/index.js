@@ -20,19 +20,23 @@ const heading=(
 
 // React functional component
 const HeaderComponent=()=> {
-    return <h1 className="head">namaste react functional component</h1>
+    return (
+    <h1 className="head">namaste react functional component </h1>)
+            
 }
 //component composition
 
 let greet="hello"
 const HeaderComponent2=()=> (
     <div id="container">
-        <HeaderComponent/>
+        {<HeaderComponent/>}
+        {/* or */}
+        <HeaderComponent></HeaderComponent>
 
     {/* write react element inside component */}
          {heading}
         <h1>{greet }</h1>
-        <h1 className="head">namaste react functional component2</h1>
+        <h1 className="head">namaste react functional component2</h1> 
     </div>
 )
 
@@ -43,4 +47,4 @@ parent.render(<HeaderComponent2/>)
 
 // how to render react element
 
-// parent.render(JSXheading)
+// parent.render(JSXheading);

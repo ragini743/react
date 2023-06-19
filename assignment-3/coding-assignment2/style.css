@@ -1,0 +1,44 @@
+html,body{
+    box-sizing: border-box;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+.parent{
+    width: 100vw;
+    height: 100vh;
+    background: aliceblue;
+}
+.container{
+    flex: wrap;
+    display:flex;
+    padding: 10px;
+}
+.user-icon{
+   display: flex;
+   justify-content: flex-end;
+}
+
+.logo,.user-icon{
+    width:150px;
+    height:150px;
+   
+    margin: auto;
+    display:flex;
+    width:50%;
+}
+
+img{
+    max-width: 150px;
+    /* height:200px; */
+    border-radius: 50%;
+    object-fit: cover;
+}
+input{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin:8% auto;
+}
