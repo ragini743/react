@@ -14,7 +14,7 @@ JSX is a javascript syntax which is easier to creaate react Element. it is makes
 
 2- "module" we should use this value when we want to load ECMAscript . it enables when use import or export statement .
 ### {<TitleComponent>} vs {<TitleComponent/>} vs {<TitleCOmponent></TitleComponent>}
-{<TitleComponent>} not valid for JSX.
+{ <TitleComponent> } not valid for JSX.
 
 {<TitleComponent/>} it is self closing tag in JSX  . it is rendering the component without any children.
 
