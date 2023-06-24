@@ -61,7 +61,7 @@ const Body =() =>{
     )
 }
 
-//another method with data structuring
+//another method with destructuring and passing props as argument
 //{resLink ,resName ,cuizine ,ratings,timing} = props
 const RestaurantCard = ( {resLink ,resName ,cuizine ,ratings ,timing} ) => {
     return(
