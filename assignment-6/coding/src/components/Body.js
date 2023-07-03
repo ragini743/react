@@ -1,34 +1,40 @@
 import RestaurantCard from "./RestaurantCard" ;
 
-import resList from "../utils/mockData.js";
+// import resList from "../utils/mockData.js";
 
 import { useState , useEffect } from "react";
 
-
+import Shimmer from "./shimmer.js"
 
 
 const Body = () => {
-  const [resListofRestaurants, setResList] = useState(resList);
+  const [resListofRestaurants, setResList] = useState([]);
 
 useEffect(()=>{
   fetchData()
 },[]);
 
 const fetchData=async ()=> {
-  try {
-    const response = await fetch (
+  
+    const data= await fetch (
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4700346&lng=81.8720841&offset=15&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING"
     )
-    const body = await response.json()
-    console.log(body)
-    return body;
-  } catch(error) {
-    console.log("Got an error", error)
-  }
-  
+    // console.log(data)
+
+    const json= await data.json()
+    console.log(json)
+
+    setResList(json.data.cards)
+    // optional chaining
+
+    setResList(json?.data?.cards)
+
+
 }
-  // console.log(resListofRestaurants)
-  // console.log(resList)
+if( resListofRestaurants.length===0){
+  return <Shimmer/>
+}
+  
   return (
     <div className="body">
       <div className="search">
@@ -42,13 +48,14 @@ const fetchData=async ()=> {
       
       </div>
       <div className="res-container">
+      
         {resListofRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resdata={restaurant} />
+          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
         ))}
       </div>
     </div>
   )
 }
-// console.log(resListofRestaurants)
+
 
 export default Body 
