@@ -12,7 +12,7 @@ body{
     align-items: center;
 }
 .div{
-    width:20%;
+    width:15%;
 }
 
 .logo{
@@ -29,8 +29,8 @@ body{
     list-style: none;
 }
 .nav-items >ul >li{
-    font-size: 2.5vw;
-    padding-left: 20px;
+    font-size: 2vw;
+    padding-right: 20px;
     justify-content: space-evenly;
 }
 .res-logo{
@@ -46,8 +46,8 @@ body{
 .shimmer-card{  height: 290px;
     width: 270px;
     padding: 5px;
-    background-color: rgb(152, 145, 145);
-    box-shadow: 0 0 0 2px grey;
+    background-color: rgb(197, 192, 192);
+    box-shadow: 0 0 5px 5px rgb(197, 192, 192) ;
 }
 .res-card:hover , .filter-btn {
     border: 1px  solid black;
@@ -76,24 +76,35 @@ body{
     flex-direction: row;
     margin-bottom: 5px;
 }
-.search{
-    /* text-align: center; */
+.search {
+    display: flex;
     margin: 20px auto;
     padding: 10px;
     
 }
-.filter-btn{
+.filter-btn {
+    margin-left: 20px;
     padding:10px
+}
+
+.searchBox,button{
+  padding: 10px;
 }
 .app{
         background: aliceblue;
     }
 
 
+    @media screen and (max-width:319px) and (min-width:100px){
+        .res-container{
+            grid-template-columns:auto;
+        }
+    }
 
 @media screen and (min-width:320px) and (max-width:
-400px){
+450px){
     .res-container{
         grid-template-columns:repeat(2,auto) ;
     }
 }
+
