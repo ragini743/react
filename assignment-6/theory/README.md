@@ -25,3 +25,5 @@ it is security mechanism implemented in web browser to control cross origin http
 async is used to define a an asynchronous function .  asynchronous functionis a function that can pause execution and returrns a promise .
 
 await is used inside async function to pause execution of function a promise is resolved or reject .
+#### what is the use of const json = await data.json() ; in getRestaurants() ?
+it is used to parse the response data received from an API call into the javascript object .it is ensure that the data is properly converted from its raw data to json from the API .
