@@ -1,34 +1,58 @@
-import {useEffect,useState} from "react"
-import shimmer from "./shimmer"
-
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import shimmer from "./shimmer";
+import {MENU_URL} from "../utils/constants"
 
 const RestaurantMenu = () => {
-    [resInfo,setResInfo]= useState(null)
-    useEffect(()=>{fetchMenu()},[])
-    const fetchMenu= async()=>{
-   const data= await fetch( "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.4700346&lng=81.8720841&restaurantId=150376&submitAction=ENTER")
-   const json= await data.json()
-   console.log(json)
-   setResInfo(json.data)
-   console.log("resInfo",resInfo)
-    }
-    if(resInfo===null){return <shimmer />}
+  [resInfo, setResInfo] = useState(null);
+  const { resId } = useParams();
+//   console.log(params);
 
-    const {name ,cloudinaryImageId ,costForTwo ,costForTwoMessage ,cuisines ,city,avgRating}=resInfo.cards[0].card.card.info
+  useEffect(() => {
+    fetchMenu();
+  }, []);
+  const fetchMenu = async () => {
+    const data = await fetch(MENU_URL+resId
+    );
+    const json = await data.json();
+    console.log(json);
+    setResInfo(json.data);
+  };
+  if (resInfo === null) {
+    return <shimmer />;
+  }
 
-    return(
-        <div className="menu">
-            <h1>{name}</h1>
-            <h4>{costForTwo}</h4>
-            <h4>{costForTwoMessage}</h4>
-            <h4>{avgRating}</h4>
-            <ul>
-                <li>Ice-creams</li>
-                <li>cold drinks</li>
-                <li>pizza</li>
-                <li>Biryani</li>
-            </ul>
-        </div>
-    )
-}
-export default RestaurantMenu
+  const {
+    name,
+    cloudinaryImageId,
+    costForTwo,
+    costForTwoMessage,
+    cuisines,
+    city,
+    avgRating,
+  } = resInfo.cards[0].card.card.info;
+
+  console.log("resInfo", resInfo);
+  const { itemCards } =
+    resInfo.cards[3].groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
+  console.log("itemcards", itemCards);
+
+  return (
+    <div className="menu">
+      <h1>{name}</h1>
+      <h4>{costForTwo}</h4>
+      <h4>{costForTwoMessage}</h4>
+      <h4>{avgRating}</h4>
+      <ul>
+        {itemCards.map((item) => (
+          <li key={item.card.info}>
+            {item.card.info.name} -{item.card.info.price / 100}
+            {item.card.info.imageId}
+            {item.card.info.showImage}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+export default RestaurantMenu;
