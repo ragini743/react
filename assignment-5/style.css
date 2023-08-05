@@ -1,18 +1,18 @@
 
 body{
     box-sizing: border-box;
-    padding: 0;
+    padding: 0 ;
     margin:  0;
 }
 
 .header{
-    
+    border:solid rgb(144, 141, 141);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .div{
-    width:20%;
+    width:15%;
 }
 
 .logo{
@@ -39,8 +39,8 @@ body{
     object-fit: cover;
 }
 .res-card{
-    height: 290px;
-    width: 270px;
+    height: 260;
+    /* width: 270px; */
     padding: 5px;
 }
 .res-card:hover,.filter-btn {
@@ -48,10 +48,10 @@ body{
     cursor: pointer;
 }
 .res-container{
-    margin: 4%;
+    margin:0 4%;
     display: grid;
-    grid-template-columns: repeat(3,auto);
     grid-gap: 2%;
+    grid-template-columns: repeat(4,1fr);
     justify-content: center;
     align-items: center;
 }
@@ -72,4 +72,21 @@ body{
 }
 .app{
         background: aliceblue;
+        /* padding: 10px; */
+    }
+    h3 ,h4{
+        margin: 10px 0;
+    }
+
+
+
+
+
+
+
+
+    @media(min-width:900px){
+        .res-container{
+            margin:0 10%;
+        }
     }

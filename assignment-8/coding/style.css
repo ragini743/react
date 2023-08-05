@@ -6,7 +6,7 @@ body{
 }
 
 .header{
-    
+    border: 1px solid rgb(110, 109, 109);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +39,8 @@ body{
     object-fit: cover;
 }
 .res-card {
-    height: 260px;
+    height: 290px;
+    max-width: 270px;
     padding: 5px;
 }
 .shimmer-card{  height: 290px;
@@ -55,7 +56,7 @@ body{
 .res-container{
     margin: 4%;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,auto);
     grid-gap: 2%;
     justify-content: center;
     align-items: center;
@@ -89,20 +90,10 @@ body{
 .searchBox,button{
   padding: 10px;
 }
-.app{
+.app{  margin: 5px;
         background: aliceblue;
     }
-    h3 ,h4{
-        margin: 10px 0;
-    }
 
-
-
-    @media(min-width:900px){
-        .res-container{
-            margin:0 10%;
-        }
-    }
 
     @media screen and (max-width:319px) and (min-width:100px){
         .res-container{

@@ -41,7 +41,7 @@ const Body = () => {
           <RestaurantCard key={restaurant.data.id} resdata={restaurant} />
         ))}
       </div>
-      <button onClick={() => {
+      {/* <button onClick={() => {
         const temp = [...resListofRestaurants];
         temp.push({
           "type": "restaurant",
@@ -154,7 +154,7 @@ const Body = () => {
           "subtype": "basic"
           })
         setResList(temp);
-      }}>Add 1 more restaurant</button>
+      }}>Add 1 more restaurant</button> */}
     </div>
   );
 };
