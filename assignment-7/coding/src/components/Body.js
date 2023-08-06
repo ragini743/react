@@ -9,7 +9,7 @@ import Shimmer from "./shimmer.js";
 
 const Body = () => {
   const [resListofRestaurants, setResList] = useState([]);
-  const [newResList, newSetResList] = useState([]);
+  const [newResList, SetNewResList] = useState([]);
 
   const [searchText, setSearchText] = useState("");
 
@@ -26,9 +26,13 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
 
-    setResList(json.data.cards);
+    const cards=json.data.cards.filter((card)=>card?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    console.log("cards", cards)
+  
+      const restaurantList = cards[0].card.card.gridElements.infoWithStyle.restaurants
+      setResList(restaurantList);
+      SetNewResList(restaurantList);
 
-    newSetResList(json.data.cards);
     // optional chaining
 
     setResList(json?.data?.cards);
@@ -60,7 +64,7 @@ const Body = () => {
                   .includes(searchText.toLowerCase());
               });
               // console.log("Fitlered response:", filteredRestaurants)
-              newSetResList(filteredRestaurants);
+              SetNewResList(filteredRestaurants);
             }}
           >
             search
@@ -81,8 +85,8 @@ const Body = () => {
 
       <div className="res-container">
         {newResList.map((restaurant) => (
-       <Link to={"/restaurants/" +restaurant.data.id}
-          key={restaurant.data.id}>
+       <Link to={"/restaurants/" +restaurant.info.id}
+          key={restaurant.info.id}>
             < RestaurantCard  resData={restaurant} />
           </Link>
         ))}
