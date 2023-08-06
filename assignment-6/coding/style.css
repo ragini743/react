@@ -6,13 +6,13 @@ body{
 }
 
 .header{
-    
+    border: solid grey;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .div{
-    width:15%;
+    width:12%;
 }
 
 .logo{
@@ -64,7 +64,7 @@ body{
 .shimmer-Container{
     margin: 4%;
     display: grid;
-    grid-template-columns: repeat(3,auto);
+    grid-template-columns: repeat(4,1fr);
     grid-gap: 2%;
     justify-content: center;
     align-items: center;

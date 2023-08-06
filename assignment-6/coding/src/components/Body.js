@@ -8,10 +8,9 @@ import Shimmer from "./shimmer.js";
 
 const Body = () => {
   const [resListofRestaurants, setResList] = useState([]);
-const [newResList, newSetResList]=useState([]);
+  const [newResList, SetNewResList] = useState([]);
 
   const [searchText, setSearchText] = useState("");
-
 
   useEffect(() => {
     fetchData();
@@ -21,17 +20,20 @@ const [newResList, newSetResList]=useState([]);
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4700346&lng=81.8720841&offset=15&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING"
     );
+
     // console.log(data)
 
     const json = await data.json();
     console.log(json);
+    // I need restaurants list
 
-    setResList(json.data.cards);
 
-     newSetResList(json.data.cards)
-    // optional chaining
+  const cards=json.data.cards.filter((card)=>card?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  console.log("cards", cards)
 
-    setResList(json?.data?.cards);
+    const restaurantList = cards[0].card.card.gridElements.infoWithStyle.restaurants
+    setResList(restaurantList);
+    SetNewResList(restaurantList);
   };
 
   if (resListofRestaurants.length === 0) {
@@ -50,22 +52,17 @@ const [newResList, newSetResList]=useState([]);
               setSearchText(e.target.value);
             }}
           />
-          
 
           <button
             onClick={() => {
-            
               //filter the restaurants card and update the UI
               const filteredRestaurants = resListofRestaurants.filter((res) => {
-                
-                
-          
-                return res.data.data.name.toLowerCase().includes(searchText.toLowerCase());
-                
+                return res.data.data.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase());
               });
               // console.log("Fitlered response:", filteredRestaurants)
-              newSetResList(filteredRestaurants);
-            
+              SetNewResList(filteredRestaurants);
             }}
           >
             search
@@ -83,12 +80,12 @@ const [newResList, newSetResList]=useState([]);
           top rated Restaurants
         </button>
       </div>
-      
+
       <div className="res-container">
         {newResList.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
-      </div>
+      </div>  ax
     </div>
   );
 };
