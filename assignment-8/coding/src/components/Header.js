@@ -4,8 +4,7 @@ import { Link } from "react-router-dom"
 
 export const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
-  console.log("header render"
-  )
+  
   //if no dependency array =>useEffect is called on every render
   //if depedency array is empty =[] =>useEffect is called on initial render (just once)
   //if dependency array is [btnNameReactt]=>called everytime btnNameReact is updated
@@ -24,7 +23,7 @@ export const Header = () => {
           {/* using anchor tag */}
           <li><a href="/About">About us</a></li>
           {/* using Link component provided by react-router-dom */}
-          <li><Link to="/About">Contact us</Link></li>
+          <li><Link to="/Contacts">Contact us</Link></li>
           <li>Cart</li>
           <button
             className="login"
