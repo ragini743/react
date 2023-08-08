@@ -53,7 +53,7 @@ const RestaurantMenu = () => {
           <li key={item.card.info}>
             {item.card.info.name} -   {item.card.info.price / 100}
           
-            <img src={itemCard_URL+item.card.info.imageId} alt={item.card.info.name} class="itemCard-image"/>
+            <img src={itemCard_URL+item.card.info.imageId} alt={item.card.info.name} className="itemCard-image"/>
           </li> 
         ))}
       </ul>

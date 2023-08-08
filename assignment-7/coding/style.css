@@ -109,9 +109,22 @@ h4{
     text-overflow: ellipsis;
 }
 
-/* .res-container a {
-    overflow: hidden;
-} */
+.menu>ul{
+  padding: 0 10%;
+}
+.menu>ul >li{  
+  font-size: x-large; 
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  object-fit: cover;
+}
+.itemCard-image{
+  height: 15%;
+  width:20%;
+  object-fit: cover;
+  padding-bottom: 5%;
+}
 
 @media (min-width: 900px) {
   .res-container {
