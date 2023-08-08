@@ -1,6 +1,7 @@
 import { LOGO_URL } from "../utils/constants";
 import { useState ,useEffect} from "react";
-import { Link } from "react-router-dom"
+import { BrowserRouter, Link, Route, Router, Routes } from "react-router-dom"
+{BrowserRouter,Route,Router}
 
 export const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
@@ -19,9 +20,11 @@ export const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li><Link to="/">home</Link></li>
+          <li><Link to="/">
+            home</Link></li>
           {/* using anchor tag */}
-          <li><a href="/About">About us</a></li>
+          <li><a href="/About">
+            About us</a></li>
           {/* using Link component provided by react-router-dom */}
           <li><Link to="/Contacts">Contact us</Link></li>
           <li>Cart</li>

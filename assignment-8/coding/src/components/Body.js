@@ -12,6 +12,8 @@ const Body = () => {
   const [newResList, SetNewResList] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+  console.log("resListOfRestau",
+  resListofRestaurants)
 
   useEffect(() => {
     fetchData();
@@ -24,7 +26,7 @@ const Body = () => {
     // console.log(data)
 
     const json = await data.json();
-    console.log(json);
+    console.log("json",json);
 
     const cards=json.data.cards.filter((card)=>card?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     console.log("cards", cards)
@@ -32,11 +34,6 @@ const Body = () => {
       const restaurantList = cards[0].card.card.gridElements.infoWithStyle.restaurants
       setResList(restaurantList);
       SetNewResList(restaurantList);
-
-   
-    // optional chaining
-
-    setResList(json?.data?.cards);
   };
 
   if (resListofRestaurants.length === 0) {
@@ -60,7 +57,7 @@ const Body = () => {
             onClick={() => {
               //filter the restaurants card and update the UI
               const filteredRestaurants = resListofRestaurants.filter((res) => {
-                return res.data.data.name
+                return res.info.name
                   .toLowerCase()
                   .includes(searchText.toLowerCase());
               });
@@ -86,7 +83,7 @@ const Body = () => {
 
       <div className="res-container">
         {newResList.map((restaurant) => (
-       <Link to={"/restaurants/" +restaurant.info.id}
+       <Link to={"/RestaurantMenu/" +restaurant.info.id}
           key={restaurant.info.id}>
             < RestaurantCard  resData={restaurant} />
           </Link>

@@ -3,12 +3,13 @@ import { useParams } from "react-router-dom";
 import shimmer from "./shimmer";
 import {MENU_URL} from "../utils/constants"
 import {CDN_URL} from "../utils/constants"
+import {itemCard_URL} from "../utils/constants"
 
 const RestaurantMenu = () => {
   [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
 //   console.log(params);
-console.log("resId",resId)
+  console.log("resId",resId)
 
   useEffect(() => {
     fetchMenu();
@@ -17,12 +18,14 @@ console.log("resId",resId)
     const data = await fetch(MENU_URL+resId);
     const json = await data.json();
     console.log(json);
-    setResInfo(json.data);
+    setResInfo(json);
   };
   
   if (resInfo === null) {
     return <shimmer />;
   }
+
+  console.log("resInfo", resInfo);
 
   const {
     name,
@@ -32,11 +35,10 @@ console.log("resId",resId)
     cuisines,
     city,
     avgRating,
-  } = resInfo.cards[0].card.card.info;
+  } = resInfo.data.cards[0].card.card.info;
 
-  console.log("resInfo", resInfo);
   const { itemCards } =
-    resInfo.cards[3].groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
+    resInfo.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
   console.log("itemcards", itemCards);
 
   return (
@@ -51,7 +53,7 @@ console.log("resId",resId)
           <li key={item.card.info}>
             {item.card.info.name} -   {item.card.info.price / 100}
           
-            <img src={item.card.info.imageId} alt={item.card.info.name} />
+            <img src={itemCard_URL+item.card.info.imageId} alt={item.card.info.name} class="itemCard-image"/>
           </li> 
         ))}
       </ul>

@@ -1,5 +1,5 @@
 // import {User ,User2} from "./User.js"
-import { UserClass ,UserClass2 } from "./UserClass.js"
+import { UserClass , UserClass2 } from "./UserClass.js"
 
 import React from "react"
 // or
