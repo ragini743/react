@@ -1,58 +1,20 @@
-### why do we use componentDidMount ?
-it is a part of classComponents lifecycle it is used to perfom a task  or actionns after a component has been rendered and mounted the DOM for the  first time.this method is used for external API fetching data from server settingUp eventListeners or performing otherinitialization steps.
-### why do we use componentWillUnmount? show with example .
-it is perform cleanup actions before a component is unMount and reoved from DOM this is useful for preventing memory leaks.
-##### example-
-class EventListenerComponent extends from React.component{
-    componentDidMount(){
-        //add event when component mount
-        this. addEventListener("resize",this.handleResize)
-    }
-    componentWillUnmount(){
-        //remove eventListener when component is about to unmount
-        window.removeEventListener("resize",this.handleResize)
-    }
-    const handleResize =( ) =>{
-        console.log("window resized")
-    }
-    render(){
-        return(
-            <p>component with eventListener</p>
-        )
-    }
-}
+### when and why do we need lazy() ?
+it is a function given by react which is come from react.lazy() is a concept related to lazy evalution which is strtegy where the evalution of an expression or computation is delayed until the result is actually needed.it is needed when we want to optimize memory usage ,improve performance deal with infinite data streams.
+### what is suspense ?
+suspense is a technique that allows a program or a system to pause the execution of a task or operation until a specific consition is met. it is in asynchronous programming scenaraos where operations might take some time to complete such as fetching data from a network or loading resources.
+### advantage and disadvantage of using this code spliting pattern ?
+#### advantage -
+code spliting pattern improve the perrformance and load times of web application  by breaking the codebase into smalller chunks that are loaded only when needed.
 
-### what is the order of life cycle method calls  in class based components ?
-##### 1- Mounting
-this methods are called in the following order when an instance of a component is being created and inserted into the DOM:
+2 - code spliting enables lazy loading of components improving the time .
 
-constructor()
+3 - smaller chunks of code more cachable .if a useer revisit your application the browser  more likely to have cached the required chunks further improving load times.
+#### disadvantage -
+1- code spliting can introduce complexity to the build process and devlopment workflow managing multiple code chunks and dependencies require careful consideration and configuration .
 
-render()
+2 - older browser or device not fully support some code spliting.
 
-componentDidMount()
-##### 2-Updating
-An update can be caused by changes to props or state. These methods are called in the following order when a component is being re-rendered:
-
-static getDerivedStateFromProps()
-
-shouldComponentUpdate()
-
-render()
-
-getSnapshotBeforeUpdate()
-
-componentDidUpdate()
-##### 3-Unmounting
-This method is called when a component is being removed from the DOM:
-
-componentWillUnmount()
-##### 4- Error Handling
-These methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
-
-static getDerivedStateFromError()
-componentDidCatch()
-### how do you create nested routes react-router-dom ?
-
-
-
+3 - code splitting adds a small amount of overhead for the initial load as the browser needs to fetch and process the initail bundle as well as load additional chunks when needed.
+### when do and why do we need suspense ?
+when data fetching from server or an API ,there can be a delay before the data arrives .instead of rendering empty or partially populated components you can use suspense to show loading indicators or placeholder until the data is available.
+### why we got this error: A component suspended while responding to synchronous input this will cause the UI to be replaced with loading indicator .to fix updates that suspend should be wrapped with start transition . How does suspense fix this errror? 
