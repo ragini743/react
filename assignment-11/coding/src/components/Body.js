@@ -6,13 +6,13 @@ import {Link} from "react-router-dom"
 import Shimmer from "./shimmer.js";
 
 const Body = () => {
-  const [resListofRestaurants, setResList] = useState([]);
+   const [resListofRestaurants, setResList] = useState([]);
   const [newResList, SetNewResList] = useState([]);
 
   const [searchText, setSearchText] = useState("");
   console.log("resListOfRestau",
   resListofRestaurants)
-  // const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
+  const RestaurantCardPromoted = withPromotedLabel()
 
   useEffect(() => {
     fetchData();
@@ -92,11 +92,12 @@ const Body = () => {
         {newResList.map((restaurant) => (
        <Link to={"/RestaurantMenu/" +restaurant.info.id}
           key={restaurant.info.id}>
-            < RestaurantCard  resData={restaurant} />
+            {/* < RestaurantCard  resData={restaurant} /> */}
             {/* if the restaurants is promoted  then add a promotes label to it  */}
 
-            {/* {restaurant.info.sla.type?                (<RestaurantCardPromoted resData={restaurant }/>) :(<RestaurantCard resData={restaurant} />)
-           }  */}
+            {restaurant.info.aggregatedDiscountInfoV3?               
+             (<RestaurantCardPromoted resData={restaurant }/>) :(<RestaurantCard resData={restaurant} />)
+           } 
           </Link>
         ))}
       </div>

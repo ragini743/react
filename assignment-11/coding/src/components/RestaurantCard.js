@@ -29,11 +29,17 @@ const RestaurantCard = (props) => {
 };
 //higher order component
 //input - RestaurantCard => RestaurantCardPromoted
-export const withPromotedLabel = (RestaurantCard) => {
+export const withPromotedLabel = () => {
   return (props)=>{
+    console.log('restdata in component', props)
+    const {resData} = props;
+    const x = resData.info.aggregatedDiscountInfoV3.header + " " + resData.info.aggregatedDiscountInfoV3.subHeader;
+
+
     return (
-      <div>
-        <label>promoted</label>
+      <div className=" relative h-full">
+        {/* <label>discount</label> */}
+        <label className="label absolute bottom-1/2 font-bold text-center left-5 "> {x} </label>
         <RestaurantCard {...props}/>
         </div>
     )
