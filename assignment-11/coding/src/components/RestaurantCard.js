@@ -39,7 +39,8 @@ export const withPromotedLabel = () => {
     return (
       <div className=" relative h-full">
         {/* <label>discount</label> */}
-        <label className="label absolute bottom-1/2 font-bold text-center left-5 "> {x} </label>
+        <label className="label absolute bottom-1/2 font-bold text-center left-5 text-white
+        "> {x} </label>
         <RestaurantCard {...props}/>
         </div>
     )
