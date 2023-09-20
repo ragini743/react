@@ -1,12 +1,18 @@
+import { useState } from "react" ;
 import ItemList from "./ItemList" ;
 
-const RestaurantCategory = ({data}) => {
-    console.log("data",data)
+// import React from "react";
+
+const RestaurantCategory = ({data,showItems,setShowIndex ,dummy }) => {
+     const handleClick = ()=>{
+        setShowIndex();
+     }
+
   return (
     <div>
       {/* Header */}
       <div className="items-center my-4 shadow-lg  rounded-xl mx-auto w-2/4 p-4 ">
-        <div className="justify-between flex">
+        <div className="justify-between flex cursor-pointer" onClick={handleClick}>
         <span className="font-bold text-lg">
             {data.title}
         </span>
@@ -15,7 +21,7 @@ const RestaurantCategory = ({data}) => {
          
         </span>
       </div>
-      <ItemList items={data.itemCards} />
+      {showItems && <ItemList items={data.itemCards}  dummy = {dummy}/>}
       </div>
       {/* accordian body
        */}

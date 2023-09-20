@@ -1,7 +1,8 @@
 import RestaurantCard , {withPromotedLabel} from "./RestaurantCard";
 import useOnlineStatus from "../utils/useOnlineStatus"
-import { useState, useEffect } from "react";
-import {Link} from "react-router-dom"
+import { useState, useEffect,useContext } from "react";
+import {Link} from "react-router-dom";
+import UserContext from "../utils/UserContext.js";
 
 import Shimmer from "./shimmer.js";
 
@@ -41,6 +42,7 @@ const Body = () => {
   //   return <h1>online</h1>
   // }
 
+  const {setUserName,loggedInUser} =useContext(UserContext)
   if (resListofRestaurants.length === 0) {
     return <Shimmer />;
   }
@@ -73,18 +75,22 @@ const Body = () => {
             search
           </button>
         </div>
-        <div>
+        {/* <div> */}
         <button
           className="filter-btn rounded-md bg-slate-300 px-4 py-2 mx-2"
           onClick={() => {
             const filterList = resListofRestaurants.filter(
-              (res) => res.data.avgRating > 4
+              (res) => res.info.avgRating> 4
             );
-            setResList(filterList);
+            SetNewResList(filterList);
           }}
         >
           top rated Restaurants
         </button>
+        {/* </div> */}
+        <div>
+          <label className="mr-2">userName : </label>
+          <input className="border-2 p-2 border-black ml-6"value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
         </div>
       </div>
 
@@ -94,7 +100,7 @@ const Body = () => {
           key={restaurant.info.id}>
             {/* < RestaurantCard  resData={restaurant} /> */}
             {/* if the restaurants is promoted  then add a promotes label to it  */}
-
+  
             {restaurant.info.aggregatedDiscountInfoV3?               
              (<RestaurantCardPromoted resData={restaurant }/>) :(<RestaurantCard resData={restaurant} />)
            } 

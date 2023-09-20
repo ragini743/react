@@ -1,9 +1,10 @@
-// import {User ,User2} from "./User.js"
-import { UserClass , UserClass2 } from "./UserClass.js"
+import React from "react";
+import UserContext from "../utils/UserContext.js";
 
-import React from "react"
+import {Component} from "react";
+import { UserClass , UserClass2 } from "./UserClass.js";
+// import {User ,User2} from "./User.js"
 // or
-import {Component} from "react"
 // const About=()=>{
 //     return (
 //         <div>
@@ -38,7 +39,8 @@ render(){
     console.log("parent render")
      return (
         <div>
-            <h1>welcome to about page</h1>
+            <h1>welcome to about class component page</h1>
+            <div>loggedInUser <UserContext.Consumer>{({loggedInUser}) =><h1>{loggedInUser}</h1>}</UserContext.Consumer></div>
             {/* <User />
             <User2 name={"ravi"} 
             location={"MP"}

@@ -1,16 +1,20 @@
-
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import shimmer from "./shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-import {CDN_URL} from "../utils/constants"
-import {itemCard_URL} from "../utils/constants"
-import RestaurantCategory from "./RestaurantCategory"
+import {CDN_URL} from "../utils/constants" ;
+import {itemCard_URL} from "../utils/constants";
+import RestaurantCategory from "./RestaurantCategory" ;
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 //   console.log(params);
   console.log("resId",resId)
+
+  const dummy = "Dummy Data";
 const resInfo = useRestaurantMenu(resId)
+
+const [showIndex,setShowIndex]=useState(null)
   
   if (resInfo === null) {
     return <shimmer />;
@@ -43,7 +47,12 @@ const resInfo = useRestaurantMenu(resId)
       <h4 className="text-xl p-2 mt-2 mb-2 text-white bg-green-800 inline-block">{avgRating}*</h4>
 
       {/*  categpories accordions */}
-      {categories.map((category) => (<RestaurantCategory  data = {category.card.card} />))}
+      {categories.map((category ,index) => 
+      // controlled component
+      (<RestaurantCategory key ={category?.card?.card?.title} data = {category.card.card} showItems={index=== showIndex ?true:false}
+      setShowIndex={() => setShowIndex(index)} 
+      dummy={dummy}
+      />))}
       </div>
   );
 };

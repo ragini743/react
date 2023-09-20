@@ -1,8 +1,9 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState ,useEffect} from "react";
+import { useState ,useEffect ,useContext} from "react";
 import { BrowserRouter, Link, Route, Router, Routes } from "react-router-dom"
 {BrowserRouter,Route,Router}
 import useOnlineStatus from "../utils/useOnlineStatus"
+import UserContext from "../utils/UserContext";
 
 export const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
@@ -12,6 +13,9 @@ export const Header = () => {
   //if dependency array is [btnNameReactt]=>called everytime btnNameReact is updated
   useEffect(() =>{console.log("useEffect called")}, [btnNameReact])
 const onlineStatus = useOnlineStatus()
+
+const {loggedInUser} = useContext(UserContext);
+console.log("loggedInUser",loggedInUser);
 
   return (
     <div className="flex justify-between items-center bg-blue-200">
@@ -41,6 +45,7 @@ const onlineStatus = useOnlineStatus()
           >
             {btnNameReact}
           </button>
+          <li className="px-2 bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>
