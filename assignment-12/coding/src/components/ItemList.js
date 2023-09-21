@@ -1,8 +1,17 @@
+import { isFluxStandardAction } from "@reduxjs/toolkit";
 import {itemCard_URL} from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList =({items,dummy}) =>{
     console.log("items" ,items)
     console.log("dummy",dummy)
+    const dispatch=useDispatch();
+    const handleAddItem =(item) =>{
+        // dispatch an Action
+        dispatch(addItem(item));
+
+    }
     return(
         <div>
             { items.map((item) => (
@@ -16,7 +25,7 @@ const ItemList =({items,dummy}) =>{
                     <div className="w-2/12 p-4 h-32"><img className="w-full h-full object-cover" src={itemCard_URL+item.card.info.imageId}></img>
                     <div clsssName="absolute w-full p-4">
                     <button className=" relative text-white bg-slate-400 font-bold
-                     bottom-4 w-full shadow-lg">Add +</button>
+                     bottom-4 w-full shadow-lg" onClick={() =>handleAddItem(item)}>Add +</button>
                     </div>
                     </div>
                 </div>
