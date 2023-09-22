@@ -20,18 +20,24 @@ const Shimmer = () => {
       
       </div>
       <div className="res-container grid gap-7 px-12 py-8 mx-10 my-8 grid-cols-4 ">
-          <div className="bg-slate-400 ">hey</div>
-          <div className="bg-slate-400">fjvf</div>
-          <div className="bg-slate-400">fffggf</div>
-          <div className="bg-slate-400">fgd</div>
-          <div className="bg-slate-400"></div>
-          <div className="bg-slate-400"></div>
-          <div className="bg-slate-400"></div>
-          <div className="bg-slate-400"></div>
-          <div className="bg-slate-400"></div>
-          <div className="bg-slate-400"></div>
-          <div className="bg-slate-400"></div>
-          <div className="bg-slate-400"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+          <div className="bg-slate-300 h-60 shadow-slate-200 border-2-neutral-500 rounded-lg"></div>
+      
+          
 
           </div>
     </>

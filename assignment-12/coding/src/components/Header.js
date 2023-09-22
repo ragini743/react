@@ -36,7 +36,7 @@ console.log("cartItems",cartItems)
           <li className="mr-4"><Link to="/Contacts">Contact us</Link></li>
           <li className="mr-4"><Link to ="Grocery">Grocery</Link></li>
           <li className="mr-4"><Link to ="Grocery">Grocery</Link></li>
-          <li className="mr-4">Cart ({cartItems.length})</li>
+          <li className="mr-4"><Link to = "/cart">Cart ({cartItems.length}items)</Link></li>
           <button
             className="login"
             onClick={() => {
