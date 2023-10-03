@@ -37,5 +37,36 @@ create a '.parcelrc' in root and write code
 }
 ```
 
+* how to run test cases
+```
+npm run test
+if we got 'no test found' , then config set up to work for test cases
+```
+ then add jest configuration using -
+```
+npx jest --init
+it is ask you few question
+* 1. would you like to use typescript for the configuration file - no(choose)
+* 2. we use  jsdom for testing
+
+it is create a  file 'jest.config.js'
+```
+
+now we install jsdom library using -
+```
+npm install --save-dev jest-environment-jsdom
+```
+now we install @babel/preset-react to make jsx work in test cases . we use this so that babel convert jsx into normal html
+```
+npm i -D @babel/preset-react
+```
+now we need to add @babel/preset-react inside our babel config
+```
+["@babel/preset-react:",{runtime:"automatic"}]
+```
+we use ToBeInTheDocument,screen.getByRole to use this we need to install  @testing-library/jest-dom 
 
 
+#### what is jsdom
+whenn you run test cases there is no server running. test cases does not run on browser .so they will need a environment .
+jsdom ia a library which parses and interacts with assembled HTML just like a browser.it is not actually a browser insted it implements web standards like browsers do . you can feed it some html and it will parse that html.
