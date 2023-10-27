@@ -1,5 +1,4 @@
-import React ,{Suspense, lazy, useEffect} from "react";
-import { useState,useEffect } from "react";
+import React ,{Suspense, lazy, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import { Header } from "./components/Header";
 import Body from "./components/Body";
