@@ -20,13 +20,13 @@ const cartItems = useSelector((store) => store.cart.items)
 ;
 console.log("cartItems",cartItems)
   return (
-    <div className="flex justify-between items-center bg-blue-200">
-      <div className="w-52 ">
+    <div className="flex flex-wrap md:justify-between md:w-full md:items-center fixed top-0 bg-white z-30 pb-5 ">
+      <div className="w-20 order-1 md:w-52 ">
         <img src={LOGO_URL}></img>
       </div>
-      <div>
-        <h4 className="p-1 inline bg-amber-300" id="onlineStatus">{onlineStatus ? "online":"offline"}</h4>
-        <ul className="m-4 flex ">
+      <div className="order-2 relative">
+        <h4 className="fixed top-0 left-24 md:left-[40rem]  p-1 inline bg-amber-300" id="onlineStatus">{onlineStatus ? "online":"offline"}</h4>
+        <ul className="md:m-4 flex flex-wrap ">
           <li className="mr-4"><Link to="/">
             home</Link></li>
           {/* using anchor tag */}
@@ -38,7 +38,7 @@ console.log("cartItems",cartItems)
           <li className="mr-4"><Link to ="Grocery">Grocery</Link></li>
           <li className="mr-4"><Link to = "/cart">Cart ({cartItems.length}items)</Link></li>
           <button
-            className="login"
+            className="login fixed top-0 right-14"
             onClick={() => {
               btnNameReact === "Login"
                 ? setBtnNameReact("Logout")
@@ -47,7 +47,7 @@ console.log("cartItems",cartItems)
           >
             {btnNameReact}
           </button>
-          <li className="px-2 bold">{loggedInUser}</li>
+          <li className="px-2 bold fixed top-0 right-0">{loggedInUser}</li>
         </ul>
       </div>
     </div>

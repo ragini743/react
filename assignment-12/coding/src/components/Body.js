@@ -48,9 +48,9 @@ const Body = () => {
   }
 
   return (
-    <div className="body">
-      <div className="search flex items-baseline">
-        <div className="searchButton m-4 p-4">
+    <div className="body mt-[140px] md:mt-[180px]">
+      <div className="search flex  flex-col md:flex-row items-baseline">
+        <div className="flex searchButton my-4 md:m-4 md:p-4">
           <input
             type="text"
             className="searchBox border-2 border-black bg-slate-300 p-1.5"
@@ -88,17 +88,17 @@ const Body = () => {
           top rated Restaurants
         </button>
         {/* </div> */}
-        <div>
-          <label className="mr-2">userName : </label>
-          <input className="border-2 p-2 border-black ml-6"value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
+        <div className="mt-2 md:mt-0">
+          <label className="md:mr-2">userName : </label>
+          <input className="border-2 p-2 border-black md:ml-6"value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
         </div>
       </div>
 
-      <div className="res-container grid gap-7 px-12 py-8 mx-10 my-8 grid-cols-4 ">
+      <div className="res-container grid gap-7 md:px-12 py-8 mx-10 my-8 md:grid-cols-4 ">
         {newResList.map((restaurant) => (
        <Link to={"/RestaurantMenu/" +restaurant.info.id}
           key={restaurant.info.id}>
-            {/* < RestaurantCard  resData={restaurant} /> */}
+            
             {/* if the restaurants is promoted  then add a promotes label to it  */}
   
             {restaurant.info.aggregatedDiscountInfoV3?               
