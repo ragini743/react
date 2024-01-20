@@ -21,7 +21,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://cors-anywhere.herokuapp.com/https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4700346&lng=81.8720841&offset=15&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING"
+      "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D25.4700346%26lng%3D81.8720841%26offset%3D15%26sortBy%3DRELEVANCE%26pageType%3DSEE_ALL%26page_type%3DDESKTOP_SEE_ALL_LISTING"
     );
     // console.log(data)
 
