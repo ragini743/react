@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import shimmer from "./Shimmer";
+import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import {CDN_URL} from "../utils/constants" ;
 import {itemCard_URL} from "../utils/constants";
@@ -17,7 +17,7 @@ const resInfo = useRestaurantMenu(resId)
 const [showIndex,setShowIndex]=useState(null)
   
   if (resInfo === null) {
-    return <shimmer />;
+    return <Shimmer />;
   }
 
   console.log("resInfo", resInfo);
