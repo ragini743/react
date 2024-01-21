@@ -23,7 +23,7 @@ export const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
   console.log("cartItems", cartItems);
   return (
-    <div className="flex justify-between items-center md:justify-between md:w-full md:items-center fixed top-0 bg-white z-30 pb-4 sm:pb-2">
+    <div className="flex justify-between items-center md:justify-between md:w-full md:items-center fixed top-0 bg-white z-30 pb-4 sm:pb-2 left-0 right-0">
       <div className="w-[20%] sm:w-[15%]  md:w-[15%] ">
         <img src={LOGO_URL}></img>
       </div>
@@ -61,8 +61,8 @@ export const Header = () => {
         
         </ul>
       </div>
-      <div className="text-xs sm:text-sm flex"> <button
-            className="login fixed top-0 right-14"
+      <div className="text-xs sm:text-sm flex flex-wrap absolute top-0 right-14 bg-white"> <button
+            className="login "
             onClick={() => {
               btnNameReact === "Login"
                 ? setBtnNameReact("Logout")
@@ -79,7 +79,7 @@ export const Header = () => {
           alt="" onClick={() => isShowSet(!isShow)}
         ></img>
         </div>
-        {isShow===true?(<ul className="md:m-4 flex flex-wrap text-xs mt-[6rem] mx-auto pl-4 pb-2 bg-white">
+        {isShow===true?(<ul className="md:m-4 flex flex-wrap text-xs mt-[6rem] pl-4 pb-2 bg-white">
           <li className="mr-4">
             <Link to="/">home</Link>
           </li>
