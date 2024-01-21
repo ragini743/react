@@ -23,19 +23,19 @@ export const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
   console.log("cartItems", cartItems);
   return (
-    <div className="flex justify-between items-center md:justify-between md:w-full md:items-center fixed top-0 bg-white z-30 pb-4 sm:pb-2 left-0 right-0">
-      <div className="w-[20%] sm:w-[15%]  md:w-[15%] ">
+    <div className="flex justify-between items-center md:justify-between md:w-full md:items-center fixed top-0 bg-white z-30 py-4 sm:pb-2 left-0 right-0 md:px-[5%] lg:px-[10%]">
+      <div className="w-[24%] sm:w-[15%]  md:w-[15%] max-w-[12%]  ">
         <img src={LOGO_URL}></img>
       </div>
       <div className="">
         <h4
-          className="fixed top-2 rounded-lg left-[10rem] md:left-[40rem]  px-1 inline bg-amber-300"
+          className="fixed top-2 rounded-lg left-[10rem] text-xs md:text-sm md:left-[40rem]  px-1 inline bg-amber-300"
           id="onlineStatus"
         >
           {onlineStatus ? "online" : "offline"}
         </h4>
       </div>
-      <div className="hidden sm:flex sm:text-xs md:text-sm">
+      <div className="hidden sm:flex sm:text-xs md:text-sm lg:text-lg ">
       
         <ul className="md:m-4 sm:flex flex-wrap ">
           <li className="mr-4">
@@ -61,7 +61,7 @@ export const Header = () => {
         
         </ul>
       </div>
-      <div className="text-xs sm:text-sm flex flex-wrap absolute top-0 right-14 bg-white"> <button
+      <div className="text-xs sm:text-sm  md:text-lg flex flex-wrap absolute top-0 right-14 bg-white"> <button
             className="login "
             onClick={() => {
               btnNameReact === "Login"

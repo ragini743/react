@@ -41,10 +41,10 @@ const [showIndex,setShowIndex]=useState(null)
   console.log("categories",categories)
 
   return (
-    <div className="menu text-center">
-      <h1 className="font-bold text-4xl">{name}</h1>
-      <h4 className="text-2xl pt-3">{costForTwoMessage}</h4>
-      <h4 className="text-xl p-2 mt-2 mb-2 text-white bg-green-800 inline-block">{avgRating}*</h4>
+    <div className="menu text-center text-sm md:text-lg">
+      <h1 className="font-bold lg:text-4xl">{name}</h1>
+      <h4 className=" pt-3">{costForTwoMessage}</h4>
+      <h4 className=" p-2 mt-2 mb-2 text-white bg-green-800 inline-block">{avgRating}*</h4>
 
       {/*  categpories accordions */}
       {categories.map((category ,index) => 

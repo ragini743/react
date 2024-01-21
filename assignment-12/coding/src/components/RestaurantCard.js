@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
   const { deliveryTime } = resData?.info?.sla;
 
   return ( 
-    <div className="r grid-flow-row-dense h-full pb-5 rounded-3xl md:pb-2" style={{ backgroundColor: "#dad4d4" }}>
+    <div className="r grid-flow-row-dense h-full pb-5 rounded-3xl text-sm md:pb-2" style={{ backgroundColor: "#dad4d4" }}>
       <div className="w-[100%] rounded-3xl"><img className="res-logo rounded-3xl" src={CDN_URL + cloudinaryImageId} /></div>
       {/* <img className="res-logo rounded-2xl" src={CDN_URL + cloudinaryImageId} /> */}
       <h3 className="font-bold pl-3 pt-4">{name}</h3>

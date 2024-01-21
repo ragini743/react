@@ -48,8 +48,8 @@ const Body = () => {
   }
 
   return (
-    <div className="body mt-[100px] md:mt-[120px] w-[80%] mx-auto">
-      <div className="search flex  flex-col md:flex-row items-baseline">
+    <div className="body mt-[100px] md:mt-[120px] w-[80%] mx-auto ">
+      <div className="search flex flex-wrap md:flex-row items-center">
         <div className="flex searchButton my-4 md:m-4 md:p-4">
           <input
             type="text"
@@ -77,7 +77,7 @@ const Body = () => {
         </div>
         {/* <div> */}
         <button
-          className="filter-btn rounded-md bg-slate-300  px-2 py-1 md:px-4 md:py-2 mx-2"
+          className="filter-btn rounded-md bg-slate-300  px-2 py-1 md:px-3 md:py-2 mx-2 md:text-sm"
           onClick={() => {
             const filterList = resListofRestaurants.filter(
               (res) => res.info.avgRating> 4
@@ -88,13 +88,13 @@ const Body = () => {
           top rated Restaurants
         </button>
         {/* </div> */}
-        <div className="mt-6 md:mt-0">
-          <label className="md:mr-2">userName : </label>
-          <input className="border-2 py-1 px-2 rounded-lg outline-none md:p-2 border-black md:ml-6"value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
+        <div className="mt-6 md:mt-0 flex md:ml-6 ">
+          <label className="md:mr-1">userName : </label>
+          <input className="border-2  px-1 rounded-lg outline-none lg:py-1 border-black md:ml-4"value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
         </div>
       </div>
 
-      <div className="res-container grid gap-10 md:px-12 py-8  sm:grid-cols-2 md:grid-cols-4 ">
+      <div className="res-container grid gap-14 py-8  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {newResList.map((restaurant) => (
        <Link to={"/RestaurantMenu/" +restaurant.info.id}
           key={restaurant.info.id} className="rounded-3xl">
